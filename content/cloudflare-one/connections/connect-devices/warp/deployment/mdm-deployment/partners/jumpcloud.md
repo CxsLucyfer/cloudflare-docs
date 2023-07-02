@@ -2,6 +2,8 @@
 pcx_content_type: how-to
 title: JumpCloud
 weight: 2
+meta:
+    description: Learn how to deploy Cloudflare WARP using JumpCloud.
 ---
 
 # Deploy WARP using JumpCloud
@@ -14,7 +16,7 @@ weight: 2
 
 3. Select the **Windows** tab, then click **(+)**.
 
-    ![Configuring WARP in the JumpCloud **Windows** tab](/cloudflare-one/static/documentation/connections/jumpcloud.png)
+    ![Configuring WARP in the JumpCloud **Windows** tab](/images/cloudflare-one/connections/jumpcloud.png)
 
 4. In the **Software Name** field, enter a unique display name.
 
@@ -46,7 +48,7 @@ Verify that Cloudflare WARP was installed by selecting the app and viewing the *
 
 3. Select the **Apple** tab, then click **(+)**.
 
-    ![Configuring WARP in the JumpCloud **Apple** tab](/cloudflare-one/static/documentation/connections/jumpcloud-mac.png)
+    ![Configuring WARP in the JumpCloud **Apple** tab](/images/cloudflare-one/connections/jumpcloud-mac.png)
 
 4. In the **Software Description** field, enter a unique display name.
 

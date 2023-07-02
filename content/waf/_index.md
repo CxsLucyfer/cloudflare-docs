@@ -5,6 +5,7 @@ layout: overview
 weight: 1
 meta:
   title: Cloudflare Web Application Firewall
+  description: The Cloudflare Web Application Firewall (WAF) provides automatic protection from vulnerabilities and the flexibility to create custom rules.
 ---
 
 # Cloudflare Web Application Firewall
@@ -20,7 +21,6 @@ Get automatic protection from vulnerabilities and the flexibility to create cust
 ## Features
 
 {{<feature header="Custom rules" href="/waf/custom-rules/">}}
-{{<plan type="enterprise">}}
 Create your own custom rules to protect your website and your APIs from malicious incoming traffic. Use advanced features like [WAF attack score](/waf/about/waf-attack-score/) and [uploaded content scanning](/waf/about/content-scanning/) in your custom rules.
 {{</feature>}}
 
@@ -41,7 +41,7 @@ Review mitigated requests (rule matches) using an intuitive interface. Tailor yo
 {{</feature>}}
 
 {{<feature header="Security Analytics" href="/waf/security-analytics/" cta="Explore Security Analytics">}}
-{{<plan type="enterprise">}}
+{{<plan type="business">}}
 Displays information about all incoming HTTP requests, including those not affected by security measures.
 {{</feature>}}
 
@@ -51,7 +51,7 @@ Displays information about all incoming HTTP requests, including those not affec
 
 {{<resource-group>}}
 
-{{<resource header="WAF managed rules (previous version)" href="https://support.cloudflare.com/hc/articles/200172016" icon="documentation-clipboard">}}
+{{<resource header="WAF managed rules (previous version)" href="/waf/reference/legacy/old-waf-managed-rules/" icon="documentation-clipboard">}}
 Documentation on the previous implementation of WAF managed rules.
 {{</resource>}}
 

@@ -30,7 +30,7 @@ curl -v "https://<MCAS API URL>/api/discovery_block_scripts/?format=120&type=ban
 
 This will return a list of banned hostnames. In this case, Angie's List is the banned application.
 
-![Banned hostnames](/cloudflare-one/static/secure-web-gateway/microsoft-mcas/mcas-domains.png)
+![Banned hostnames](/images/cloudflare-one/microsoft-mcas/mcas-domains.png)
 
 ### Processing the output
 
@@ -60,9 +60,9 @@ If you would like to get a list of all of the MCAS allowed applications, you can
 $ curl -v "https://<MCAS API URL>/api/discovery_block_scripts/?format=120&type=allowed" -H "Authorization: Token <API token>"
 ```
 
-## Adding a hostname list in the Zero Trust Dashboard
+## Adding a hostname list in Zero Trust
 
-1.  In the Zero Trust Dashboard, navigate to **My Team** > **Lists**
+1.  In Zero Trust, navigate to **My Team** > **Lists**
 1.  Click on **Upload CSV**. Even though the hostname list is not really in CSV format, it will work with no issues.
 1.  Add a name for the list, specify "Hostnames" as the list type, and give it a description.
 1.  Drag and drop your MCAS output file created via the API call, or you can click **Select a file**.
@@ -73,7 +73,7 @@ Your list is now ready to be referenced by Gateway HTTP policies.
 
 ## Creating an HTTP policy
 
-1.  Navigate to **Gateway** > **Policies** > **HTTP policies**.
+1.  Navigate to **Gateway** > **Firewall Policies** > **HTTP policies**.
 
 1.  Click **Create a policy**.
 
@@ -87,4 +87,4 @@ Your list is now ready to be referenced by Gateway HTTP policies.
 
 Now when trying to visit one of the MCAS defined sites, the user will be blocked.
 
-![Access Restricted](/cloudflare-one/static/secure-web-gateway/microsoft-mcas/mcas-block-page.png)
+![Access Restricted](/images/cloudflare-one/microsoft-mcas/mcas-block-page.png)

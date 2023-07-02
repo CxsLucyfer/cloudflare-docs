@@ -9,15 +9,17 @@ layout: single
 
 # Localize a website with HTMLRewriter
 
+{{<render file="_tutorials-wrangler-v1-warning.md">}}
+
 {{<render file="_tutorials-before-you-start.md">}}
 
 ## Overview
 
-The [`HTMLRewriter`](/workers/runtime-apis/html-rewriter/) class built into the Cloudflare Workers runtime allows for parsing and rewriting of HTML at the Cloudflare edge. This gives developers the ability to efficiently and transparently customize their Workers applications.
+The [`HTMLRewriter`](/workers/runtime-apis/html-rewriter/) class built into the Cloudflare Workers runtime allows for parsing and rewriting of HTML on the Cloudflare global network. This gives developers the ability to efficiently and transparently customize their Workers applications.
 
 In this tutorial, you will build an example internationalization and localization engine (commonly referred to as **i18n** and **l10n**) for your application, serve the content of your site, and automatically translate the content based your visitors’ location in the world.
 
-![An example site that has been successfully localized in Japanese, German and English](./media/i18n.jpg)
+![An example site that has been successfully localized in Japanese, German and English](/images/workers/tutorials/localize-website/i18n.jpg)
 
 ## Setup
 
@@ -27,10 +29,10 @@ If you would like to deploy your own version of the site, you can find the sourc
 
 ## Create a project
 
-Create a new project by cloning the [Workers Sites](https://github.com/cloudflare/worker-sites-template) template on GitHub and pass `i18n-example` as the project name.
+Create a new project by cloning the [Workers Sites](https://github.com/cloudflare/workers-sdk/tree/main/templates/worker-sites) template on GitHub and pass `i18n-example` as the project name.
 
 ```sh
-~/ $ git clone https://github.com/cloudflare/worker-sites-template i18n-example
+~/ $ npx wrangler generate i18n-example worker-sites
 ~/ $ cd i18n-example
 ~/i18n-example $
 ```
@@ -55,7 +57,7 @@ The `HTMLRewriter` class provided in the Workers runtime allows developers to pa
 
 The example website in this tutorial is a basic single-page HTML project that lives in the `public` directory. It includes an `h1` element with the text `Example Site` and a number of `p` elements with different text:
 
-![Demo code shown in Chrome DevTools with the elements described above](./media/code-example.png)
+![Demo code shown in Chrome DevTools with the elements described above](/images/workers/tutorials/localize-website/code-example.png)
 
 What is unique about this page is the addition of [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes) in the HTML – custom attributes defined on a number of elements on this page. The `data-i18n-key` on the `h1` tag on this page, as well as many of the `p` tags, indicates that there is a corresponding internationalization key, which should be used to look up a translation for this text:
 
@@ -153,7 +155,7 @@ class ElementHandler {
 }
 ```
 
-To review that everything looks as expected, use the preview functionality built into Wrangler. Call [`wrangler dev`](/workers/wrangler/cli-wrangler/commands/#dev) to open up a live preview of your project. `wrangler dev` is refreshed after every code change that you make.
+To review that everything looks as expected, use the preview functionality built into Wrangler. Call [`wrangler dev`](/workers/wrangler/commands/#dev) to open up a live preview of your project. `wrangler dev` is refreshed after every code change that you make.
 
 You can expand on this simple translation functionality to provide country-specific translations, based on the incoming request’s `Accept-Language` header. By taking this header, parsing it, and passing the parsed language into your `ElementHandler`, you can retrieve a translated string in your user’s home language, provided that it is defined in `strings`.
 
@@ -163,7 +165,7 @@ To implement this:
 2.  Pass a `countryStrings` object into our `ElementHandler`, so that it can be used during the parsing process.
 3.  Grab the `Accept-Language` header from an incoming request, parse it, and pass the parsed language to `ElementHandler`.
 
-To parse the `Accept-Language` header, install the [`accept-language-parser`](https://www.npmjs.com/package/accept-language-parser) NPM package:
+To parse the `Accept-Language` header, install the [`accept-language-parser`](https://www.npmjs.com/package/accept-language-parser) npm package:
 
 ```sh
 ---
@@ -255,7 +257,7 @@ async function handleEvent(event) {
 
 Your i18n tool built on Cloudflare Workers is complete and it is time to deploy it to your domain.
 
-To deploy your `*.workers.dev` subdomain, you need to configure the `wrangler.toml` configuration file in your project. First, add your Cloudflare [account ID](/workers/get-started/guide/#6a-obtaining-your-account-id-and-zone-id). Set this ID at the top part of your project’s `wrangler.toml` file:
+To deploy your `*.workers.dev` subdomain, you need to configure the `wrangler.toml` configuration file in your project. First, add your Cloudflare [account ID](/fundamentals/get-started/basic-tasks/find-account-and-zone-ids/). Set this ID at the top part of your project’s `wrangler.toml` file:
 
 ```toml
 ---
@@ -295,7 +297,7 @@ theme: dark
 ~/i18n-example $ wrangler publish
 ```
 
-![An example site that has been successfully localized in Japanese, German and English](./media/i18n.jpg)
+![An example site that has been successfully localized in Japanese, German and English](/images/workers/tutorials/localize-website/i18n.jpg)
 
 ## Related resources
 

@@ -43,7 +43,7 @@ An Okta administrator in your organization must first [enable U2F support](https
 
 You can begin building U2F policies by testing your Okta integration.
 
-Navigate to the **Settings > Authentication** section of the Zero Trust Dashboard. Next, choose the row for Okta and click **Test**.
+Navigate to the **Settings > Authentication** section of Zero Trust. Next, choose the row for Okta and click **Test**.
 
 Cloudflare Access will prompt you to login with your Okta account. For the purposes of the test, use a second factor option like an app-based code. Okta will return `amr` values to Cloudflare Access - these are standard indicators of multifactor methods shared between identity control systems.
 
@@ -51,18 +51,17 @@ The `mfa` value is sent by Okta to tell Cloudflare Access that you used a multif
 
 You can test with a hardkey by logging out of Okta and returning to the list of providers in Access. Click **Test** again, but this time use your hardware key as a second factor. Cloudflare Access will now see Okta share `hwk` in the `amr` fields.
 
-![Test MFA](/cloudflare-one/static/zero-trust-security/require-yubikey/with-hwk.png)
+![Test MFA](/images/cloudflare-one/zero-trust-security/require-yubikey/with-hwk.png)
 
 ## Build a Zero Trust policy to require U2F
 
 You can use this information to build a rule in Access. Navigate to the `Applications` list in the Cloudflare Access section of the dashboard. Choose an application that you have already built or create a new one. This example adds the requirement to an existing application.
 
-
 Click **Edit** to edit the existing `Allow` rule.
 
 Add a `Require` rule and select `Authentication Method` from the list. Choose `hwk` as the required `Authentication Method`. Click **Save rule**.
 
-![Require Rule](/cloudflare-one/static/zero-trust-security/require-yubikey/require-hwk.png)
+![Require Rule](/images/cloudflare-one/zero-trust-security/require-yubikey/require-hwk.png)
 
 Optional: you can also configure Cloudflare Access to only show users Okta for this application if you have multiple other providers integrated. In the `Authentication` Tab, choose `Okta` as the only option to show users.
 
@@ -70,6 +69,6 @@ Optional: you can also configure Cloudflare Access to only show users Okta for t
 
 You can now test the rule. Visit the application and attempt to login using an app-based code or method other than a hardware security key. Access will block the attempt.
 
-![Blocked](/cloudflare-one/static/zero-trust-security/require-yubikey/blocked-user.png)
+![Blocked](/images/cloudflare-one/zero-trust-security/require-yubikey/blocked-user.png)
 
 If you sign out of Okta, and reattempt with a hardware key, Access will then allow the connection.

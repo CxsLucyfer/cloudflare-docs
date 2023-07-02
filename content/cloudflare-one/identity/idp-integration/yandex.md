@@ -32,7 +32,7 @@ To set up Yandex for Cloudflare Access:
     https://<your-team-name>.cloudflareaccess.com/cdn-cgi/access/callback
     ```
 
-    ![Yandex Platform interface with Web services checked and callback URI in open form field](/cloudflare-one/static/documentation/identity/yandex/yandex-3.png)
+    ![Yandex Platform interface with Web services checked and callback URI in open form field](/images/cloudflare-one/identity/yandex/yandex-3.png)
 
 1.  Click **Add**.
 
@@ -42,7 +42,7 @@ To set up Yandex for Cloudflare Access:
 
 1.  Copy the **ID** and **Password**.
 
-1.  On the Zero Trust dashboard, navigate to **Settings > Authentication**.
+1.  In Zero Trust, navigate to **Settings > Authentication**.
 
 1.  Under **Login methods**, click **Add new**.
 

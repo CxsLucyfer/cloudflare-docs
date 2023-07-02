@@ -6,9 +6,9 @@ pcx_content_type: how-to
 
 # Set up a bucket for full packet captures
 
-Before you can begin a full packet capture, you must first configure a bucket that Cloudflare can use to upload your files. 
+Before you can begin a full packet capture, you must first configure a bucket that Cloudflare can use to upload your files.
 
-You can configure an Amazon S3 or Google Cloud Platform bucket to use as a target. 
+You can configure an Amazon S3 or Google Cloud Platform bucket to use as a target.
 
 ## Set up a bucket
 
@@ -17,22 +17,23 @@ Learn how to set up a bucket for use with full packet captures.
 {{<tabs labels="Dashboard | API">}}
 {{<tab label="dashboard" no-code="true">}}
 
-1. Log in to your [Cloudflare dashboard](https://dash.cloudflare.com/login) and select **Magic Transit** or **Magic WAN**.
-2. On the **Magic Transit** or **Magic WAN** page next to **Packet captures**, select **Start a capture**.
-3. From the **Packet captures** page, select the **Buckets** tab.
-4. Select **Add a bucket**.
-5. Under **Bucket configuration**, select a bucket service and select **Next**.
-6. Enter the information related to your bucket for your service provider.
-7. When you are done, select **Next**.
+1. Log in to your [Cloudflare dashboard](https://dash.cloudflare.com/login), and select you account.
+2. Select **Magic Transit** or **Magic WAN**.
+3. In **Packet captures**, select **Start a capture**.
+4. From the **Packet captures** page, select the **Buckets** tab.
+5. Select **Add a bucket**.
+6. Under **Bucket configuration**, select a bucket service and select **Next**.
+7. Enter the information related to your bucket for your service provider.
+8. When you are done, select **Next**.
 
 The **Prove ownership** step of the **Bucket configuration** displays.
 
 {{</tab>}}
 {{<tab label="api" no-code="true">}}
 
-Before you can begin using a bucket, you must first enable destinations. 
+Before you can begin using a bucket, you must first enable destinations.
 
-Refer to the [Amazon S3](/logs/get-started/enable-destinations/aws-s3/#manage-via-api) or [Google Cloud Storage](/logs/get-started/enable-destinations/google-cloud-storage/#manage-via-api) documentation and follow the steps for those specific services.
+Refer to the [Amazon S3](/logs/get-started/enable-destinations/aws-s3/#create-and-get-access-to-an-s3-bucket) or [Google Cloud Storage](/logs/get-started/enable-destinations/google-cloud-storage/#create-and-get-access-to-a-gcs-bucket) documentation and follow the steps for those specific services.
 
 {{</tab>}}
 {{</tabs>}}
@@ -144,9 +145,10 @@ View a list of all buckets configured on your account.
 {{<tabs labels="Dashboard | API">}}
 {{<tab label="dashboard" no-code="true">}}
 
-1. Log in to your [Cloudflare dashboard](https://dash.cloudflare.com/login) and select **Magic Transit** or **Magic WAN**.
-2. On the **Magic Transit** or **Magic WAN** page next to **Packet captures**, select **Start a capture**.
-3. From the **Packet captures** page, select the **Buckets** tab.
+1. Log in to your [Cloudflare dashboard](https://dash.cloudflare.com/login), and select you account.
+2. Select **Magic Transit** or **Magic WAN**.
+3. In **Packet captures**, select **Start a capture**.
+4. Select the **Buckets** tab.
 
 The list of buckets associated with your account displays.
 

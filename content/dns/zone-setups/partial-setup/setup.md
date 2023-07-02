@@ -30,7 +30,7 @@ A partial setup is only available to customers on a Business or Enterprise plan.
 
 5.  For **Advanced Actions**, click **Convert to CNAME DNS Setup**.
 
-    ![On your domain's overview page, click Convert to CNAME DNS Setup](/dns/static/dns_cname_setup.png)
+    ![On your domain's overview page, click Convert to CNAME DNS Setup](/images/dns/dns_cname_setup.png)
 
 6.  Click **Convert**.
 
@@ -53,13 +53,21 @@ A verification record for `example.com` might be:
 </div>
 </details>
 
+{{<Aside type="note">}}
+
+If your authoritative DNS provider automatically appends DNS record `name` fields with your domain, make sure to only insert `cloudflare-verify` as the record name. Otherwise, it may result in an incorrect record name, such as `cloudflare-verify.example.com.example.com`.
+
+After creating the record, you can use this [Dig Web Interface link](https://digwebinterface.com/?type=TXT&ns=auth&nameservers=) to search (`dig`) for `cloudflare-verify.<YOUR DOMAIN>` and validate if it is working.
+
+{{</Aside>}}
+
 That record must remain in place for as long as your domain is active on the partial setup on Cloudflare.
 
 ---
 
 ## Optional — Provision an SSL certificate
 
-To provision a Universal SSL certificate through Cloudflare, follow [these instructions](/ssl/edge-certificates/universal-ssl/enable-universal-ssl/#non-authoritative-partial-domains).
+To provision a Universal SSL certificate through Cloudflare, follow [these instructions](/ssl/edge-certificates/universal-ssl/enable-universal-ssl/#partial-dns-setup).
 
 If your domain is already live with a partial DNS setup — with Cloudflare or another DNS provider — you cannot use a TXT record for [Domain Control Validation](/ssl/edge-certificates/changing-dcv-method/methods/txt/). That domain's TXT record needs to be reserved for forwarding traffic to Cloudflare.
 
@@ -75,7 +83,7 @@ If your domain is already live with a partial DNS setup — with Cloudflare or a
     2.  Add a `CNAME` record for `{your-hostname}.cdn.cloudflare.net`.
 
         <details>
-        <summary>Example CNAME record in Cloudflare</summary>
+        <summary>Example CNAME record at authoritative DNS provider</summary>
         <div>
 
         The `CNAME` record for `www.example.com` would be:
